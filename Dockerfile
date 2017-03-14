@@ -11,7 +11,8 @@ WORKDIR $APP_HOME
 COPY Gemfile* $APP_HOME/
 RUN scl enable rh-ror42 "bundle install"
 COPY . $APP_HOME
-RUN mkdir -m 777 tmp db
+RUN mkdir tmp
+RUN chmod a+rwx tmp db
 
 EXPOSE 3000
 
