@@ -1,18 +1,17 @@
 FROM registry.access.redhat.com/rhscl/ror-42-rhel7:latest
 
 LABEL maintainer Mike Bonnet <mikeb@redhat.com>
+EXPOSE 3000
+ENTRYPOINT ["scl", "enable", "rh-ror42", "rails server"]
 
 ENV LANGUAGE en_US.UTF-8
 ENV APP_HOME $HOME/fluxday
 
-RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
-
+RUN mkdir -p $APP_HOME
 COPY Gemfile* $APP_HOME/
 RUN scl enable rh-ror42 "bundle install"
+RUN mkdir -m 777 tmp db log
+RUN touch db/schema.rb log/development.log
+RUN chmod 666 db/schema.rb log/development.log
 COPY . $APP_HOME
-RUN mkdir -m 777 tmp
-
-EXPOSE 3000
-
-ENTRYPOINT ["scl", "enable", "rh-ror42", "rails server"]
