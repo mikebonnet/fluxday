@@ -7,8 +7,8 @@ ENTRYPOINT ["scl", "enable", "rh-ror42", "rails server"]
 ENV LANGUAGE en_US.UTF-8
 ENV APP_HOME $HOME/fluxday
 
-WORKDIR $APP_HOME
 RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
 COPY Gemfile* $APP_HOME/
 RUN scl enable rh-ror42 "bundle install"
 RUN mkdir -m 777 tmp db log
