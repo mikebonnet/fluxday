@@ -15,7 +15,7 @@ default: &default
   database: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASS'] %>
-  host: <%= ENV['DB_HOST'] %>
+  host: <%= ENV['FLUXDAY_DB_SERVICE_HOST'] %>
 
 development:
   <<: *default
