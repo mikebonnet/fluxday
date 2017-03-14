@@ -1,9 +1,9 @@
 development:
   google:
-    key:        'google access key'
-    secret:     'google secret'
+    key:        <%= ENV['GOOGLE_CLIENT_ID'] %>
+    secret:     <%= ENV['GOOGLE_CLIENT_SECRET'] %>
     scope:      "userinfo.email, userinfo.profile, http://gdata.youtube.com, https://www.googleapis.com/auth/youtube"
-    callback_url: "http://localhost:9292/users/auth/google_oauth2/callback"
+    callback_url: "http://localhost:3000/users/auth/google_oauth2/callback"
 
 production:
   google:
