@@ -8,9 +8,10 @@ ENV APP_HOME $HOME/fluxday
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
-ADD Gemfile* $APP_HOME/
+COPY Gemfile* $APP_HOME/
 RUN scl enable rh-ror42 "bundle install"
-ADD . $APP_HOME
+COPY . $APP_HOME
+RUN mkdir -m 777 tmp db
 
 EXPOSE 3000
 
