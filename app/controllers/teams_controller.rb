@@ -122,6 +122,11 @@ class TeamsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def team_params
+    if params.key?(:team)
+      if params[:team].key?(:team_lead_ids)
+        params[:team][:team_lead_ids].reject!(&:blank?)
+      if params[:team].key?(:user_ids)
+        params[:team][:user_ids].reject!(&:blank?)
     params.require(:team).permit(:name, :code, :description, :project_id, :members_count, :managers_count, :is_deleted, :pending_tasks, :status, :team_lead_ids => [], :user_ids => [])
   end
 end
