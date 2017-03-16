@@ -7,6 +7,10 @@ ENTRYPOINT ["scl", "enable", "rh-ror42", "rails server"]
 ENV LANG en_US.UTF-8
 ENV APP_HOME $HOME/fluxday
 
+USER root
+RUN yum -y install ImageMagick && yum -y clean all
+USER default
+
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 COPY Gemfile* $APP_HOME/
