@@ -3,7 +3,7 @@ development:
     key:        '312753704064-u5jj6ef7q32l78nnrm7n577t3g5v2uri.apps.googleusercontent.com'
     secret:     'B96vT5gJleX3-a905w5oslWr'
     scope:      "userinfo.email, userinfo.profile, http://gdata.youtube.com, https://www.googleapis.com/auth/youtube"
-    callback_url: "http://fluxday-app-mikeb-test.int.open.paas.redhat.com/users/auth/google_oauth2/callback"
+    callback_url: "https://fluxday-mikeb-test.int.open.paas.redhat.com/users/auth/google_oauth2/callback"
 
 production:
   google:
