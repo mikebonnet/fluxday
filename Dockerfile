@@ -4,7 +4,7 @@ LABEL maintainer Mike Bonnet <mikeb@redhat.com>
 EXPOSE 3000
 ENTRYPOINT ["scl", "enable", "rh-ror42", "rails server"]
 
-ENV LANGUAGE en_US.UTF-8
+ENV LANG en_US.UTF-8
 ENV APP_HOME $HOME/fluxday
 
 RUN mkdir -p $APP_HOME
