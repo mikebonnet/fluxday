@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 
+# Enable the deprecated finders, see rails/rails#17357
+gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'
+
 # Use mysql as the database for Active Record
 gem 'mysql2', '0.3.21'
 
