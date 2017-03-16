@@ -8,7 +8,7 @@ ENV LANG en_US.UTF-8
 ENV APP_HOME $HOME/fluxday
 
 USER root
-RUN yum -y install ImageMagick && yum -y clean all
+RUN yum -y --disablerepo='*' --enablerepo=rhel-7-server-rpms install ImageMagick && yum -y clean all
 USER default
 
 RUN mkdir -p $APP_HOME
