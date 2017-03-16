@@ -125,8 +125,11 @@ class TeamsController < ApplicationController
     if params.key?(:team)
       if params[:team].key?(:team_lead_ids)
         params[:team][:team_lead_ids].reject!(&:blank?)
+      end
       if params[:team].key?(:user_ids)
         params[:team][:user_ids].reject!(&:blank?)
+      end
+    end
     params.require(:team).permit(:name, :code, :description, :project_id, :members_count, :managers_count, :is_deleted, :pending_tasks, :status, :team_lead_ids => [], :user_ids => [])
   end
 end
